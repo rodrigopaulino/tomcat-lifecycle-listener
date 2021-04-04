@@ -16,12 +16,4 @@ targetCompatibility = 1.8
 
 dependencies {
     compileOnly group: 'org.apache.tomcat', name: 'tomcat-catalina', version: '7.0.0'
-
-    implementation group: 'com.github.oshi', name: 'oshi-core', version: '5.7.0'
-}
-
-jar {
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
 }

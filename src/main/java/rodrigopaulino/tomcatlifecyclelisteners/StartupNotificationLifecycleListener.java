@@ -3,8 +3,8 @@ package rodrigopaulino.tomcatlifecyclelisteners;
 import org.apache.catalina.Lifecycle;
 import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleListener;
-import oshi.PlatformEnum;
-import oshi.SystemInfo;
+
+import java.io.IOException;
 
 /**
  * @author Rodrigo Paulino
@@ -14,10 +14,20 @@ public class StartupNotificationLifecycleListener implements LifecycleListener {
     @Override
     public void lifecycleEvent(LifecycleEvent event) {
         if (Lifecycle.AFTER_START_EVENT.equals(event.getType())) {
-            if (SystemInfo.getCurrentPlatform() == PlatformEnum.MACOS) {
-                System.out.println("Rodrigo's Lifecycle Event");
+            String osName = System.getProperty("os.name").toLowerCase();
+
+            if (osName.startsWith("mac")) {
+                ProcessBuilder builder = new ProcessBuilder(
+                        "osascript", "-e",
+                        "display notification \"Your app is running\""
+                                + " with title \"Tomcat\"");
+                try {
+                    builder.inheritIO().start();
+                } catch (IOException e) {
+                   System.out.println(e);
+                }
             }
-            else if (SystemInfo.getCurrentPlatform() == PlatformEnum.WINDOWS) {
+            else if (osName.startsWith("windows")) {
             }
             else {
             }
