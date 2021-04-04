@@ -19,18 +19,18 @@ public class StartupNotificationLifecycleListener implements LifecycleListener {
 			osName = osName.toLowerCase();
 
 			if (osName.startsWith("mac")) {
-				ProcessBuilder builder = new ProcessBuilder(
+				ProcessBuilder processBuilder = new ProcessBuilder(
 					"osascript", "-e",
 					"display notification \"Your app is running\" with title " +
 						"\"Tomcat\"");
 
 				try {
-					ProcessBuilder processBuilder = builder.inheritIO();
+					ProcessBuilder inheritIO = processBuilder.inheritIO();
 
-					processBuilder.start();
+					inheritIO.start();
 				}
-				catch (IOException e) {
-					System.out.println(e);
+				catch (IOException ioException) {
+					System.out.println(ioException.getMessage());
 				}
 			}
 			else if (osName.startsWith("windows")) {
