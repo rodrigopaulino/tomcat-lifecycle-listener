@@ -14,7 +14,7 @@ dependencies {
 }
 
 jar {
-	archiveBaseName = 'rp-lifecycle-listeners'
+	archiveBaseName = 'rp-listeners'
 	archiveVersion = '0.1.0'
 }
 

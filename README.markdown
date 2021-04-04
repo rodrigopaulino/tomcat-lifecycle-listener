@@ -2,6 +2,6 @@ StartupNotificationLifecycleListener: triggers an OS notification when the app s
 
 Tomcat's server.xml:
 
-`<Listener className="rodrigopaulino.tomcatlifecyclelisteners.StartupNotificationLifecycleListener" />`
+`<Listener className="rp.listeners.StartupNotificationLifecycleListener" />`
 
 Run `gw build` and place jar inside tomcat's lib folder.

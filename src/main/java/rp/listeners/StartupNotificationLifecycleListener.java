@@ -1,4 +1,4 @@
-package rodrigopaulino.tomcatlifecyclelisteners;
+package rp.listeners;
 
 import java.io.IOException;
 
