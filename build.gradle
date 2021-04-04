@@ -1,19 +1,23 @@
-apply plugin: 'java'
+plugins {
+	id "com.liferay.source.formatter" version "5.0.28"
+}
+
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'java'
 
-repositories { 
-    mavenCentral() 
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+dependencies {
+	compileOnly group: "org.apache.tomcat", name: "tomcat-catalina", version: "7.0.0"
 }
 
 jar {
-    archiveBaseName = 'rp-lifecycle-listeners'
-    archiveVersion =  '0.1.0'
+	archiveBaseName = 'rp-lifecycle-listeners'
+	archiveVersion = '0.1.0'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-dependencies {
-    compileOnly group: 'org.apache.tomcat', name: 'tomcat-catalina', version: '7.0.0'
+repositories {
+	mavenCentral()
 }
