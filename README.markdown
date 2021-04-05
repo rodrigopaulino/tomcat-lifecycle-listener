@@ -1,5 +1,7 @@
 StartupNotificationLifecycleListener: triggers an OS notification when the app starts running.
 
+**Installation:**
+
 Tomcat's server.xml:
 
 `<Listener className="rp.listeners.StartupNotificationLifecycleListener" />`
